@@ -226,7 +226,7 @@ and G01 commands. The units at this point should all be in mm or mm per minute*/
             numberOfStepsTaken++;
             
             //update position on display
-            returnPoz();
+            //returnPoz();
             
         }
     }
