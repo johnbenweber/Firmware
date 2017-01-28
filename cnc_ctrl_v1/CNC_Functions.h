@@ -126,36 +126,6 @@ void  returnPoz(){
     
 }
 
-void  goAroundInCircle(){
-    
-    float aChainLength;
-    float bChainLength;
-    
-    float pi = 3.14159;
-    float i = 0;
-    while(true){
-        
-        float whereXShouldBeAtThisStep = 100 * cos(i*pi);
-        float whereYShouldBeAtThisStep = 100 * sin(i*pi);
-        
-        kinematics.inverse(whereXShouldBeAtThisStep,whereYShouldBeAtThisStep,&aChainLength,&bChainLength);
-        
-        
-        leftAxis.write(aChainLength);
-        rightAxis.write(bChainLength);
-        
-        delay(15);
-        
-        returnPoz();
-        
-        i = i +.0001;
-        
-        if (i > 2){
-            i = 0;
-        }
-    }
-}
-
 float calculateDelay(float stepSizeMM, float feedrateMMPerMin){
     /*
     Calculate the time delay between each step for a given feedrate
@@ -261,7 +231,7 @@ int   rapidMove(float xEnd, float yEnd, float zEnd){
         rightAxis.write(bChainLength);
         zAxis.write(zEnd);
         
-        returnPoz();
+        //returnPoz();
         
         delay(20);
 
@@ -409,7 +379,7 @@ int   arc(float X1, float Y1, float X2, float Y2, float centerX, float centerY, 
         
         delay(calculateDelay(stepSizeMM, MMPerMin));
         
-        returnPoz();
+        //returnPoz();
         
         numberOfStepsTaken = numberOfStepsTaken + 1;
     }
